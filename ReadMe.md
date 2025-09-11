@@ -1,5 +1,4 @@
 # AI Translation API
-# Running ReadyPortfolio Translation API with Ollama
 
 This guide explains how to pull the Docker images and start the services using `docker-compose`.  
 
@@ -19,7 +18,7 @@ Make sure you have the following installed:
 Run the following commands in the terminal:  
 
 ```bash
-docker pull ameurelmoukh/fastapi-translation:latest
+docker pull ameurelmoukh/fastapi_translation:latest
 
 docker pull ollama/ollama:latest
 ```
@@ -27,7 +26,6 @@ docker pull ollama/ollama:latest
 ---
 
 ## 4️⃣ start the containers
-#copy the docker-compose.yml file into your project folder then :
 
 Run the following commands:  
 
@@ -41,29 +39,96 @@ POST `/translate`
 
 ## Input JSON
 ```json
-  {
-    "education": "Bachelor's in Computer Science from MIT.",
-    "description": "Passionate about building web applications and learning new technologies.",
-    "workExperience": "Interned at TechCorp for 6 months developing React apps.",
-    "skills": "laravel, react",
-    "availability": "Full-time, available immediately."
+{
+    "firstname": "Hatim",
+    "avatar": "http://localhost:5000/api/v1/storage/images/download/68cbfa95-6cf6-4d04-8653-112d3d131fe0.jpg",
+    "lastname": "Anass",
+    "email": "anass1997hatim@gmail.com",
+    "phone": "+212691579907",
+    "dateOfBirth": 838771200000,
+    "placeOfBirth": "Casa Milà, Barcelone",
+    "gender": "m",
+    "yearsOfExperience": 0,
+    "personalSkills": [
+            "Teamwork Creativity Decision-Making Time Management"
+],
+        "skills": [ 
+            "Teamwork Creativity Decision-Making"
+],
+        "experiences": [
+        {
+            "id": 1002,
+            "jobTitle": "software engenier",
+            "employer": "Oracle",
+            "startDate": 1722380400000,
+            "endDate": 1785452400000,
+            "otherSubCategory": "",
+            "description": [
+            "Maintenance and further development of existing applications Coordination with external agencies and service providers Realization of orders"
+                ],
+            "jobCategory": {
+                    "id": 5,
+                    "label": "IT and Technology"
+            },
+            "jobSubCategory": {
+                "id": 401,
+                "label": "System Administrator",
+                "jobCategory": {
+                    "id": 5,
+                    "label": "IT and Technology"
+                }
+            }
+        }
+],
+        "educations": [
+            {
+                "id": 1002,
+                "specialization": "facultes de medecine",
+                "institute": "FSAC",
+                "degree": "Licence Professionnelle",
+                "startDate": 1722380400000,
+                "endDate": 1785452400000
+            }
+],
+        "languagesWithGrades": [
+            "English - A1"
+],
+"drivingLicenses": [
+"A",
+"B"
+]
 }
 
 ```output json
 {
-"translations" : {
-    "description": "Leidenschaftlich für den Aufbau von Webanwendungen und das Erlernen neuer Technologien.",
-    "availability": "Vollzeit, ab sofort verfügbar.",
-    "workExperience": "Praktikum bei TechCorp für 6 Monate, Entwicklung von React-Anwendungen.",
-    "education": "BSc in Computer Science von MIT.",
-    "jobTitle": "Softwareentwickler"
-  },
-  "detected_source_lang": "en",
-  "target_lang": "de"
+    "tanslations": {
+        "experiences": [
+            {
+                "jobTitle": "Software Ingenieur",
+                "description": "Wartung und Weiterentwicklung bestehender Anwendungen; Koordination mit externen Agenturen und Service-Providern; Umsetzung von Aufträgen.",
+                "jobCategory": "IT und Technologie",
+                "jobSubCategory": "Systemadministrator"
+            }
+        ],
+        "personalSkills": [
+            "Teamarbeit Kreativität Entscheidungsfindung Zeitmanagement"
+        ],
+        "skills": [
+            "Teamwork Kreativität Entscheidungsfindung"
+        ],
+        "educations": [
+            {
+                "specialization": "Fakultät für Medizin",
+                "degree": "Master of Science (MSc)"
+            }
+        ]
+    },
+    "detected_source_lang": "en",
+    "target_lang": "de"
 }
+
 ```exception if some value does not exist in request
 in case education does not exist
 {
-    "detail": "Unexpected error: 400: Missing payload item: 'education'"
+    "detail": "Unexpected error: 400: Missing payload item: 'educations'"
 }
-
