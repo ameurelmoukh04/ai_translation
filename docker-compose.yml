@@ -12,6 +12,7 @@ services:
 
   fastapi:
     image: ameurelmoukh/fastapi_translation:latest
+    #image: ai-service
     container_name: fastapi-app
     ports:
       - "8000:8000"
@@ -19,6 +20,7 @@ services:
       - ollama
     environment:
       - OLLAMA_API=http://ollama:11434
+    working_dir: /app
     command: uvicorn main:app --host 0.0.0.0 --port 8000
 
 volumes:
