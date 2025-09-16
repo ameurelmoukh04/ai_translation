@@ -9,6 +9,9 @@ services:
     volumes:
       - ~/.ollama:/root/.ollama
     restart: unless-stopped
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "ollama serve & sleep 5 && ollama pull zongwei/gemma3-translator:4b && tail -f /dev/null"
 
   fastapi:
     image: ameurelmoukh/fastapi_translation:latest

@@ -21,8 +21,6 @@ Run the following commands in the terminal:
 docker pull ameurelmoukh/fastapi_translation:latest
 
 docker pull ollama/ollama:latest
-
-ollama run zongwei/gemma3-translator:4b
 ```
 
 ---
