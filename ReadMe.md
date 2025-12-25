@@ -99,7 +99,8 @@ POST `/translate`
 ]
 }
 
-```output json
+# Output Json
+
 {
     "tanslations": {
         "experiences": [
@@ -126,6 +127,7 @@ POST `/translate`
     "detected_source_lang": "en",
     "target_lang": "de"
 }
+## Error message Example
 
 ```exception if some value does not exist in request
 in case education does not exist
