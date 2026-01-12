@@ -14,7 +14,7 @@ services:
       "ollama serve & sleep 5 && ollama pull zongwei/gemma3-translator:4b && tail -f /dev/null"
 
   fastapi:
-    image: ameurelmoukh/fastapi_translation:latest
+    image: ameurelmoukh/fastapi_translation:1.0.1
     #image: ai-service
     container_name: fastapi-app
     ports:
