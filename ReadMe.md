@@ -18,7 +18,7 @@ Make sure you have the following installed:
 Run the following commands in the terminal:  
 
 ```bash
-docker pull ameurelmoukh/fastapi_translation:2.0.1
+docker pull ameurelmoukh/fastapi_translation:3.0.1
 
 docker pull ollama/ollama:latest
 ```
